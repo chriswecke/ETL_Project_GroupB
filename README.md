@@ -12,7 +12,7 @@ For the ETL assignment we chose to build our project around Tom Hanks, an Americ
 For the extraction of the data from the Open Movide Database (OMDB), their API web service was utilized.  All of the extraction process for the OMDB source can be found in the "OMDB" folder in our repository, in the "ETL_OMDB_API" jupyter notebook. An early problem encoutered with the OMDB API service was that they don't provide a search parameter for an actor's name.  In order to work around this, and only pull Tom Hanks movies from OMDB, we used the data that was extracted from TMDB.  TMDB API service allows for queries based on actor's name/ID, and from there you can pull all the movies titles associated with a specific actor.  So once we had all the Tom Hanks' movie titles from TMDB, those titles were put into a list using the ".tolist()" function in Pandas.  That list of titles was then assigned a variable ('titles') so that it was possible to loop through each specific Tom Hanks' movie title and pull all the corresponding data for each Hanks movie contained in OMDB.  
 
 **Survey Monkey extraction--
-
+The first step in our Survey Monkey Extraction was creating a survey. We devised a simple survey that identified user's top three Tom Hanks movies, favorite genre, and some simple demographic information: year of birth and gender. After receiving 60 responses, we exported the data into a CSV, and indexed it for ease of use. If time had allowed, we would have gathered more responses. This was then imported into a dataframe using Pandas within the OMDB jupyter notebook.
 
 --Transform
 **TMDB transformation--
@@ -23,8 +23,7 @@ All of the transformation that was done to the OMDB data was done using Python a
 
 
 **Survey Monkey transformation--
-
-(NOTE**--in the OMDB jupyter notebook, I did transform the TomHanksMoviesIndexed.csv file into a Dataframe.)
+Transforming the Survey Monkey data consisted of adding two columns of indexing, and breaking the data into a table that would make for easy manipulation. We first separated each individual's response into seperate rows for each of the three selections, adding an index number for each individual and for each selection location, which indicated if it was selection 1, 2 , or 3. This allowed our end user to easily create a summary table and identify which movie was most popular.
 
 
 
